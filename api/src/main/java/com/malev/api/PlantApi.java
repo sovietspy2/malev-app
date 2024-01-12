@@ -1,5 +1,6 @@
-package com.malev;
+package com.malev.api;
 
+import com.malev.domain.Plant;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -18,4 +19,5 @@ public interface PlantApi {
             @ApiResponse(responseCode = "200", description = "successful operation")
     })
     ResponseEntity<List<Plant>> getAll();
+
 }

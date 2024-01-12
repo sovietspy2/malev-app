@@ -1,6 +1,7 @@
-package com.malev;
+package com.malev.service;
 
 
+import com.malev.domain.Plant;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 public class PlantService {
 
     public List<Plant> getPlants() {
-        return List.of(new Plant("smol plant"));
+        return List.of(new Plant("smol plant", "some text"));
     }
 
 }

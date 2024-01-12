@@ -1,5 +1,8 @@
-package com.malev;
+package com.malev.web;
 
+import com.malev.api.PlantApi;
+import com.malev.domain.Plant;
+import com.malev.service.PlantService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
