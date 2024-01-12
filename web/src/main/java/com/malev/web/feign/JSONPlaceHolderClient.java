@@ -1,4 +1,4 @@
-package com.malev.feign;
+package com.malev.web.feign;
 
 import com.malev.domain.Post;
 import org.springframework.cloud.openfeign.FeignClient;

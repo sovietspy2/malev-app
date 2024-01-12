@@ -1,4 +1,4 @@
-package com.malev.service;
+package com.malev.web.service;
 
 
 import com.malev.domain.Plant;

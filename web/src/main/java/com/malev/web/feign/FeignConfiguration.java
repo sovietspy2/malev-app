@@ -1,4 +1,4 @@
-package com.malev.feign;
+package com.malev.web.feign;
 
 import feign.codec.ErrorDecoder;
 import org.springframework.cloud.openfeign.EnableFeignClients;

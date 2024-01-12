@@ -1,9 +1,9 @@
-package com.malev.web;
+package com.malev.web.controller;
 
 import com.malev.api.PostApi;
 import com.malev.domain.Post;
-import com.malev.feign.PostClient;
-import com.malev.feign.FeignConfiguration;
+import com.malev.web.feign.PostClient;
+import com.malev.web.feign.FeignConfiguration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
