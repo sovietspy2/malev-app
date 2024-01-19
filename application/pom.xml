@@ -32,43 +32,48 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>build-image</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <image>
+                                <name>sovietspy2/whoopworld</name>
+                            </image>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.0.0</version> <!-- Adjust version as needed -->
+                        <executions>
+                            <execution>
+                                <id>run-custom-script</id>
+                                <phase>package</phase> <!-- Choose the appropriate phase -->
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>publish.sh</executable> <!-- Replace with your script name -->
+                                    <!-- Add any additional configuration as needed -->
+                                </configuration>
 
-            <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.36.0</version> <!-- Use the latest version available -->
-                <executions>
-                    <execution>
-                        <id>build-image</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <registry>docker.io</registry>
-                    <images>
-                        <image>
-                            <name>sovietspy2/whoopworld:latest</name>
-                            <build>
-                                <from>openjdk:21-jre-slim</from>
-                                <assembly>
-                                    <descriptorRef>artifact</descriptorRef>
-                                </assembly>
-                                <!-- Specify the directory containing the Dockerfile -->
-                                <dockerFileDir>${project.basedir}</dockerFileDir>
-                            </build>
-                        </image>
-                    </images>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
